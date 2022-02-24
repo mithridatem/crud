@@ -27,14 +27,17 @@
         $util->setMailUtil(htmlspecialchars($_POST['mail_util']));
         //hashage du password en md5 et affectation à l'objet (htmlspecialchars)
         $util->setPasswordUtil($_POST['password_util']);
-        //Appel de la méthode d'ajout en BDD 
+        //Appel de la méthode connexion (return true ou false) 
         if($util->connectUser($bdd)){
+            //appel de la méthode generateSuperGlob
             $util->generateSuperGlob();
+            //affichage en JS
             echo "<script>
             error.innerHTML = 'Connecté'
             </script>";
         }
         else{
+            //affichage en JS
             echo "<script>
             error.innerHTML = 'identifiant incorrect'
             </script>";
