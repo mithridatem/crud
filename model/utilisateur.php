@@ -87,7 +87,7 @@
                 die('Erreur : '.$e->getMessage());
             }        
         }
-        //Mise à jour d'un utilisateur (update)
+        //Mise à jour d'un utilisateur (update) en cours de dev
         public function updateUtil($bdd, $id){
             $nom = $this->name_util;
             $prenom = $this->first_name_util;
@@ -95,9 +95,8 @@
             $mdp = $this->password_util;
             try
             {   
-                //requête ajout d'un utilisateur
-                $req = $bdd->prepare('INSERT INTO util(name_util, first_name_util, mail_util, password_util) 
-                VALUES (:name_util, :first_name_util, :mail_util, :password_util)');
+                //requête udpate d'un utilisateur
+                $req = $bdd->prepare('req');
                 //éxécution de la requête SQL
                 $req->execute(array(
                 'name_util' => $nom,
@@ -112,23 +111,15 @@
                 die('Erreur : '.$e->getMessage());
             }        
         }
-        //Suppression d'un utilisateur (delete)
+        //Suppression d'un utilisateur (delete) en cours de dev
         public function deleteUtil($bdd, $id){
-            $nom = $this->name_util;
-            $prenom = $this->first_name_util;
-            $mail = $this->mail_util;
-            $mdp = $this->password_util;
             try
             {   
-                //requête ajout d'un utilisateur
-                $req = $bdd->prepare('INSERT INTO util(name_util, first_name_util, mail_util, password_util) 
-                VALUES (:name_util, :first_name_util, :mail_util, :password_util)');
+                //requête delete d'un utilisateur
+                $req = $bdd->prepare('req');
                 //éxécution de la requête SQL
                 $req->execute(array(
-                'name_util' => $nom,
-                'first_name_util' => $prenom,
-                'mail_util' => $mail,
-                'mdp_util' => $mdp,                                                                 
+                'id_util' => $id,                                                                
                 ));
             }
             catch(Exception $e)
