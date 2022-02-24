@@ -8,10 +8,14 @@
 </head>
 <body>
     <form action="#" method="post">
-        <input type="text" name="name_util">
-        <input type="text" name="first_name_util">
-        <input type="text" name="mail_util">
-        <input type="text" name="password_util">
+        <p>Saisir votre nom :</p>
+        <p><input type="text" name="name_util"></p>
+        <p>Saisir votre prénom :</p>
+        <p><input type="text" name="first_name_util"></p>
+        <p>Saisir votre mail :</p>
+        <p><input type="text" name="mail_util"></p>
+        <p>Saisir votre password :</p>
+        <p><input type="text" name="password_util"></p>
         <input type="submit" value="Ajouter">
     </form>
     <p id="zone"></p>
