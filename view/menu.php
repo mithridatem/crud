@@ -12,14 +12,12 @@
     /*-----------------------------------------------------
                         Menu dynamique :
         -----------------------------------------------------*/
-    //si l'utilisateur est connecté (connexion, ajouter categorie, ajouter tâche, deconnexion)
+    //si l'utilisateur est connecté (home, deconnexion)
     if(isset($_SESSION['connected']))
     {
         echo '
-        <a href="./createUser.php"><li>Créer utilisateur</li></a>
         <a href="./index.php"><li>Home</li></a>
         <a href="./deconnected.php"><li>Deconnexion</li></a>
-
         ';
     }
     //si l'utilisateur n'est pas connecté (connexion, ajouter compte, deconnexion)  
@@ -28,7 +26,7 @@
         echo '
         <a href="./createUser.php"><li>Créer utilisateur</li></a>
         <a href="./index.php"><li>Home</li></a>
-            ';  
+        ';  
     }
 
 ?>      
