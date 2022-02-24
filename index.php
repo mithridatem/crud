@@ -13,7 +13,8 @@
     //import data (model) :
     include './model/utilisateur.php';
     //import vue :
-    include './view/view_create_util.php';
+    include './view/menu.php';
+    include './view/view_connexion.php';
 
     /*-----------------------
             Test

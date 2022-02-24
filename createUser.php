@@ -13,6 +13,8 @@
     //import data (model) :
     include './model/utilisateur.php';
     //import vue :
+    include './view/menu.php';
+
     include './view/view_create_util.php';
 
     /*-----------------------
@@ -31,11 +33,6 @@
         $util->setMailUtil(htmlspecialchars($_POST['mail_util']));
         //hashage du password en md5 et affectation à l'objet (htmlspecialchars)
         $util->setPasswordUtil(md5(htmlspecialchars($_POST['password_util'])));
-        echo $util->getNameUtil();
-        echo $util->getFirstNameUtil();
-        echo $util->getMailUtil();
-        echo $util->getPasswordUtil();
-
         //Appel de la méthode d'ajout en BDD 
         $util->createUtil($bdd);
         //affichage en js de l'ajout d'un utilisateur
