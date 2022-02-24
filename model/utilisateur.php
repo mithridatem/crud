@@ -71,14 +71,14 @@
             try
             {   
                 //requête ajout d'un utilisateur
-                $req = $bdd->prepare('INSERT INTO util(name_util, first_name_util, mail_util, password_util) 
+                $req = $bdd->prepare('INSERT INTO utilisateur(name_util, first_name_util, mail_util, password_util) 
                 VALUES (:name_util, :first_name_util, :mail_util, :password_util)');
                 //éxécution de la requête SQL
                 $req->execute(array(
                 'name_util' => $nom,
                 'first_name_util' => $prenom,
                 'mail_util' => $mail,
-                'mdp_util' => $mdp,                                                                 
+                'password_util' => $mdp,                                                                 
                 ));
             }
             catch(Exception $e)
@@ -88,7 +88,7 @@
             }        
         }
         //Mise à jour d'un utilisateur (update)
-        public function updateUtil($bdd){
+        public function updateUtil($bdd, $id){
             $nom = $this->name_util;
             $prenom = $this->first_name_util;
             $mail = $this->mail_util;
@@ -113,7 +113,7 @@
             }        
         }
         //Suppression d'un utilisateur (delete)
-        public function deleteUtil($bdd){
+        public function deleteUtil($bdd, $id){
             $nom = $this->name_util;
             $prenom = $this->first_name_util;
             $mail = $this->mail_util;
@@ -139,6 +139,9 @@
         }
         //Affichage d'un utilisateur (select)
         //Affichage de tous les utilisateurs (select)
-        
+        //connexion
+        public function connectUser($bdd){
+
+        }
     }
 ?>
