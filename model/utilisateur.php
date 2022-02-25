@@ -140,12 +140,42 @@
                 "'.$password.'" LIMIT 1');
                 //parcours du résultat de la requête
                 while($donnees = $reponse->fetch())
+                {   $id = $donnees['id_util'];
+                   //return $donnees['mdp_user'];
+                    if($mail == $donnees['mail_util'] and $password == $donnees['password_util'])
+                    {
+                        
+                        //retourne true si il existe
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }                
+            }
+            catch(Exception $e){
+                //affichage d'une exception en cas d’erreur
+                die('Erreur : '.$e->getMessage());
+            }
+        }
+        //get id (user)
+        public function connectUser2($bdd){
+            $mail = $this->mail_util;
+            $password = md5($this->password_util);
+            try{                   
+                //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                $reponse = $bdd->query('SELECT * FROM utilisateur WHERE mail_util = "'.$mail.'" AND password_util = 
+                "'.$password.'" LIMIT 1');
+                //parcours du résultat de la requête
+                while($donnees = $reponse->fetch())
                 {   
                    //return $donnees['mdp_user'];
                     if($mail == $donnees['mail_util'] and $password == $donnees['password_util'])
                     {
+                        $id = $donnees['id_util'];
                         //retourne true si il existe
-                        return true;
+                        return $id;
                     }
                     else
                     {

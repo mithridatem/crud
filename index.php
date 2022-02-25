@@ -28,12 +28,18 @@
         //hashage du password en md5 et affectation à l'objet (htmlspecialchars)
         $util->setPasswordUtil($_POST['password_util']);
         //Appel de la méthode connexion (return true ou false) 
-        if($util->connectUser($bdd)){
+        $id = $util->connectUser2($bdd);
+        //test si l'id_util est supérieur à 1
+        if($id>=1){
             //appel de la méthode generateSuperGlob
             $util->generateSuperGlob();
+            //création de la superGlobale id_util
+            $_SESSION['id_util'] = $id;
+            //variable pour stocker le nom (aide pour la concaténation JS)
+            $mail = $_SESSION['mail_util'];
             //affichage en JS
             echo "<script>
-            error.innerHTML = 'Connecté'
+            error.innerHTML = 'Le mail de l\'utilisateur est égal à : $mail et l\'id : $id'
             </script>";
         }
         else{
